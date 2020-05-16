@@ -1,22 +1,32 @@
 import React from 'react';
-import style from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Home } from "@styled-icons/feather/Home";
-// import { Video } from "@styled-icons/feather/Video";
-// import { Tv } from "@styled-icons/feather/Tv";
-// import { Search } from "@styled-icons/feather/Search" ;
+import { Video } from "@styled-icons/feather/Video";
+import { Tv } from "@styled-icons/feather/Tv";
+import { Search } from "@styled-icons/feather/Search" ;
 
+const baseInputStyles = css`
+color: darkgray;
+width: 80px;
+height: 80px;
+`
 
-// `
-// color: darkgray;
-// width: 80px;
-// height: 80px;
-// `
+const StyleHome = styled.div`
+${baseInputStyles}
+`
+
+const icon = {
+    home: <Home />,
+    tv: <Tv />,
+    video: <Video />,
+    search: <Search />
+}
 
 const IconoNav = (props) => {
-    console.log(props.name)
     return (
-    // style({props.name})
-    <p>{'Aca va un icono'}</p>
+    <StyleHome>
+   {icon[props.name]}
+   </StyleHome>
 )   
 }
     

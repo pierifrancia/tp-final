@@ -1,12 +1,10 @@
 import React from 'react';
 import Card from './Card'
-import style from 'styled-components';
+import styled from 'styled-components';
 
-const ContenedorTarjetas = style.div`
+const ContenedorTarjetas = styled.div`
     display: flex;
     `
-
-
 
 const CardContainer = ({ props }) => {
 
@@ -14,7 +12,7 @@ const CardContainer = ({ props }) => {
 
     return (
         <>
-            <p>{'Hola, soy el nombre de la seccion'}</p>
+            <p>{'Nombre de la seccion'}</p>
             <ContenedorTarjetas>
                 {props.map(element => {
                     return (
