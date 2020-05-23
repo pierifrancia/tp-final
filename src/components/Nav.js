@@ -22,7 +22,9 @@ const Nav = () => {
             <Link className="icon" to="/tv">
                <IconoNav name="tv" />
            </Link>
-           <IconoNav name="search" />
+           <IconoNav name="search">
+               <input placeholder={"Búsqueda..."}></input>
+               </IconoNav>
 
     
         </NavStyle>
