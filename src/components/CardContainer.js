@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Card from './Card'
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import SectionName from './SectionName'
 
 
@@ -18,14 +19,15 @@ useEffect(() => {
       .then(data => setContenido(data.results))
   }, [])
 
-
     return (
         <>
             <SectionName title={sectionName}></SectionName>
             <ContenedorTarjetas>
                 {contenido.map(element => {
                     return (
+                        <Link to={`/movie/${element.id}`}>
                         <Card info={element} key={element.id}></Card>
+                        </Link>
                     )
                 })
                 }

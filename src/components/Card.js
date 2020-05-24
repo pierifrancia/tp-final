@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as Link } from 'react-router-dom';
+
 
 const CardStyle = styled.div`
 width: 264px;
@@ -15,22 +15,15 @@ img {
 
 const Card = ({ info }) => {
 
-
-
-    const handleClick = (e) => {
-        e.preventDefault();
-        console.log(`The link was clicked ${info.id}`);
-}
+    const handleClick = () => {
+        console.log(`hiciste click en el id ${info.id}`)
+    }
 
     return (
-    
-        <CardStyle onClick={handleClick} infoCard={info}>
-            <Link to={`/movie/${info.id}/info`}/>
+        <CardStyle onClick={handleClick}>
         <img src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} alt={`${info.poster_path}`}/>       
-        <p>{info.title}</p>
-        <p>{info.popularity}</p>  
+        <p>{info.title || info.name}</p>
         </CardStyle>
-        
     )
 }
 
