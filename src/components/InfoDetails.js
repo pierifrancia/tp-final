@@ -25,7 +25,7 @@ section {
 }
 `
 const InfoDetails = ({props}) => {
-    console.log(props)
+
 
     return (
 
@@ -46,6 +46,5 @@ const InfoDetails = ({props}) => {
 
     )
 }
-
 
 export default InfoDetails;
