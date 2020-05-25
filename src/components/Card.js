@@ -13,10 +13,10 @@ img {
 }
 `
 
-const Card = ({ info, media }) => {
+const Card = ({ info }) => {
 
     const handleClick = () => {
-        console.log(`hiciste click en el id ${info.id} de ${media}`)
+        console.log(`hiciste click en el id ${info.id}`)
     }
 
     return (

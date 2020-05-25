@@ -15,14 +15,14 @@ const CardStyle = styled.div`
     }
 }
 `
-const Details = props => {
+const Details = () => {
 
     const [contenidoDetails, setContenidoDetails] = useState([])
     const [imagen, setImagen] = useState([])
 
-    console.log(props)
-
     const params = useParams();
+
+    console.log(params)
 
     // const parametros = [props.match.params]
   
@@ -30,14 +30,14 @@ const Details = props => {
     // const media = [params.media]
   
 
-    const mediaDetails = useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/${props.match.params.media_type}/${props.match.params.id}?api_key=ae73920dc1db068b1ee4b5b159748206`)
+    useEffect(() => {
+        fetch(`https://api.themoviedb.org/3/${params.media_type}/${params.id}?api_key=ae73920dc1db068b1ee4b5b159748206`)
             .then(res => res.json())
             .then(data => setContenidoDetails(data))
     }, [])
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/${props.match.params.media_type}/${props.match.params.id}/images?api_key=ae73920dc1db068b1ee4b5b159748206`)
+        fetch(`https://api.themoviedb.org/3/${params.media_type}/${params.id}/images?api_key=ae73920dc1db068b1ee4b5b159748206`)
             .then(res => res.json())
             .then(data => setImagen(data.backdrops[0].file_path))
     }, [])

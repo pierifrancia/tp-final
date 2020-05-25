@@ -16,10 +16,9 @@ const ContainerStyle = styled.div`
     height: 500px;
 `
 
-const CardContainer = ({ urlFetch, sectionName, media }) => {
+const CardContainer = ({ urlFetch, sectionName }) => {
 
     const [contenido, setContenido] = useState([])
-    const mediaType = media
 
     useEffect(() => {
         fetch(urlFetch)
@@ -27,7 +26,7 @@ const CardContainer = ({ urlFetch, sectionName, media }) => {
             .then(data => setContenido(data.results))
     }, [])
 
-    console.log(contenido)
+    // console.log(contenido)
 
     return (
 
@@ -36,13 +35,10 @@ const CardContainer = ({ urlFetch, sectionName, media }) => {
             <SectionName title={sectionName}></SectionName>
             <ContainerStyle>
                 {contenido.map((element, i) => {
-
-                    console.log(element)
-
                     if (i < 5) {
                         return (
-                            <Link to={`/${media}/${element.id}`}>
-                                <Card info={element} key={element.id} media={media}></Card>
+                            <Link to={`/${element.media_type}/${element.id}`} key={element.id}>
+                                <Card info={element} key={element.id} media={element.media_type}></Card>
                             </Link>
                         )
                     }
