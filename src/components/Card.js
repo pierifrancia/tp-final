@@ -15,12 +15,8 @@ img {
 
 const Card = ({ info }) => {
 
-    const handleClick = () => {
-        console.log(`hiciste click en el id ${info.id}`)
-    }
-
     return (
-        <CardStyle onClick={handleClick}>
+        <CardStyle>
         <img src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} alt={`${info.poster_path}`}/>       
         <p>{info.original_title || info.original_name}</p>
         </CardStyle>

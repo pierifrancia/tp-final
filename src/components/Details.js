@@ -23,11 +23,6 @@ const Details = () => {
     const params = useParams();
 
     console.log(params)
-
-    // const parametros = [props.match.params]
-  
-
-    // const media = [params.media]
   
 
     useEffect(() => {

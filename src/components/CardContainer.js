@@ -2,13 +2,22 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import SectionName from './SectionName'
+import Trending from './Trending';
 
 const CardContainerStyle = styled.div`
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap');
+
 body {
     margin: 0px;
     background-color: #333;
   }
+
+.h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0px;
+}
 `
 
 const ContainerStyle = styled.div`
@@ -16,7 +25,7 @@ const ContainerStyle = styled.div`
     height: 500px;
 `
 
-const CardContainer = ({ urlFetch, sectionName }) => {
+const CardContainer = ({ urlFetch, sectionName, mediaType }) => {
 
     const [contenido, setContenido] = useState([])
 
@@ -26,19 +35,22 @@ const CardContainer = ({ urlFetch, sectionName }) => {
             .then(data => setContenido(data.results))
     }, [])
 
-    // console.log(contenido)
+    console.log(mediaType)
 
     return (
 
         <CardContainerStyle>
+            
+            <Link to={`/${mediaType}/trending/page`}>
+            <h2>{sectionName}</h2>
+            </Link>
 
-            <SectionName title={sectionName}></SectionName>
             <ContainerStyle>
                 {contenido.map((element, i) => {
                     if (i < 5) {
                         return (
-                            <Link to={`/${element.media_type}/${element.id}`} key={element.id}>
-                                <Card info={element} key={element.id} media={element.media_type}></Card>
+                            <Link to={`/${mediaType}/${element.id}`} key={element.id}>
+                                <Card info={element} key={element.id} media={mediaType ? mediaType : element.media_type}></Card>
                             </Link>
                         )
                     }
