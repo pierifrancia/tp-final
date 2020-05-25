@@ -7,8 +7,9 @@ import { Search } from "@styled-icons/feather/Search" ;
 
 const baseInputStyles = css`
 color: darkgray;
-width: 80px;
-height: 80px;
+width: 40px;
+height: 40px;
+margin: 10px;
 `
 
 const StyleHome = styled.div`

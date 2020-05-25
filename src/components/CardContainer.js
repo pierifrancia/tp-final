@@ -19,16 +19,20 @@ useEffect(() => {
       .then(data => setContenido(data.results))
   }, [])
 
+
+
     return (
         <>
             <SectionName title={sectionName}></SectionName>
             <ContenedorTarjetas>
-                {contenido.map(element => {
+                {contenido.map((element, i) => {
+                    if (i < 5 ) {
                     return (
                         <Link to={`/movie/${element.id}`}>
                         <Card info={element} key={element.id}></Card>
                         </Link>
                     )
+                }
                 })
                 }
             </ContenedorTarjetas>

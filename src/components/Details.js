@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import InfoDetails from './InfoDetails';
 
 const CardStyle = styled.div`
-background-image: cover;
 .portada {
+    overflow: hidden;
+    background-image: cover;
     width: 100%;
-    height: auto;
+    height: 650px;
+    img {
+    width: 100%;
+    }
 }
 `
-
 const Details = props => {
 
-    const [contenidoDetails, setContenidoDetails] = useState([])
     const [imagen, setImagen] = useState([])
+    const [contenidoDetails, setContenidoDetails] = useState([])
 
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${props.match.params.id}?api_key=ae73920dc1db068b1ee4b5b159748206`)
@@ -26,16 +30,18 @@ const Details = props => {
             .then(data => setImagen(data.backdrops[0].file_path))
     }, [])
 
-    console.log(imagen)
 
     // let idMovie = useParams().id
 
     return (
 
         <CardStyle>
-            <img className="portada" src={`https://image.tmdb.org/t/p/w500/${imagen}`} alt={`${contenidoDetails.poster_path}`} />
-            <img className="poster" src={`https://image.tmdb.org/t/p/w500/${contenidoDetails.poster_path}`} alt={`${contenidoDetails.poster_path}`} />
-            <p>{contenidoDetails.title || contenidoDetails.name}</p>
+            <div className="portada" >
+                <img src={`https://image.tmdb.org/t/p/original/${imagen}`} />
+            </div>
+            
+            <InfoDetails props={contenidoDetails}></InfoDetails>
+
         </CardStyle>
 
     )

@@ -5,14 +5,23 @@ import Home from './components/Home'
 import Movies from './components/Movies'
 import Tv from './components/Tv'
 import Details from './components/Details'
+import styled from 'styled-components';
 import './App.css';
+
+const AppStyle = styled.div`
+body {
+  margin: 0px;
+}
+background-color: #333;
+color: #eee
+`
 
 
 
 const App = () => {
 
   return (
-    <>
+    <AppStyle>
       <Router>
         <Nav />
         <Switch>
@@ -22,7 +31,8 @@ const App = () => {
           <Route path="/movie/:id" component={Details}></Route>
         </Switch>
       </Router>
-    </>
+    
+      </AppStyle>
   )
 
 }
