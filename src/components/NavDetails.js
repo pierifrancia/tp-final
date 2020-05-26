@@ -23,41 +23,23 @@ const NavDetails = () => {
 
     <NavDetailsStyle>
 
-    <Link className="link" to={`/${params.media_type}/${params.id}/info`}>INFO</Link>
+    <Link className="link" id="info" to={`/${params.media_type}/${params.id}/info`}>INFO</Link>
 
-    {`${params.media_type}` == "tv" ? <Link className="link" to={`/${params.media_type}/${params.id }/seasons/1`}>EPISODIOS</Link> : ""}
+    {`${params.media_type}` == "tv" ? 
+    <Link className="link" id="episodies" to={`/${params.media_type}/${params.id }/seasons/1`}>EPISODIOS</Link> 
+    : ""}
 
-    <Link className="link" to={`/${params.media}/${params.id}/cast`}>REPARTO</Link>
+    <Link className="link" id="cast" to={`/${params.media_type}/${params.id}/cast`}>REPARTO</Link>
 
-    {`${params.media_type}` == "movie" ? <Link className="link" to={`/${params.media_type}/${params.id}/videos`}>VIDEOS</Link> : ""}
+    {`${params.media_type}` == "movie" ? 
+    <Link className="link" id="videos" to={`/${params.media_type}/${params.id}/videos`}>VIDEOS</Link> 
+    : ""}
     
-    <Link className="link" to={`/${params.media_type}/${params.id}/similar`}>SIMILARES</Link>
+    <Link className="link" id="similars" to={`/${params.media_type}/${params.id}/similar`}>SIMILARES</Link>
 
     </NavDetailsStyle>
 
     )
-
-    // if (mediaType == 'tv') {
-    //     return (
-    //         <NavDetailsStyle>
-    //             <button id="info" onClick={handleClick}>INFO</button>
-    //             <button id="episodes" onClick={handleClick}>EPISODIOS</button>
-    //             <button id="cast" onClick={handleClick}>REPARTO</button>
-    //             <button id="similars" onClick={handleClick}>SIMILARES</button>
-    //         </NavDetailsStyle>
-    //     )
-    // }
-    // else {
-    //     return (
-    //         <NavDetailsStyle>
-    //             <button id="info" onClick={handleClick}>INFO</button>
-    //             <button id="cast" onClick={handleClick}>REPARTO</button>
-    //             <button id="videos" onClick={handleClick}>VIDEOS</button>
-    //             <button id="similars" onClick={handleClick}>SIMILARES</button>
-    //         </NavDetailsStyle>
-    //     )
-    // }
-
 }
 
 

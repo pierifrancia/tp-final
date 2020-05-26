@@ -30,7 +30,12 @@ return (
     {contenido.map((element) => {
         return (
             <Link to={`/${element.media_type}/${element.id}`} key={element.id}>
-                <Card info={element} key={element.id} media={element.media_type}></Card>
+                <Card 
+                poster={element.poster_path} 
+                title={element.original_title} 
+                key={element.id} 
+                media={mediaType ? mediaType : element.media_type}>
+                </Card>
             </Link>
 
         )

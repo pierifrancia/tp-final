@@ -39,6 +39,8 @@ const CardContainer = ({ urlFetch, sectionName, mediaType }) => {
             .then(data => setContenido(data.results))
     }, [])
 
+    console.log(contenido)
+
     return (
 
         <CardContainerStyle>
@@ -52,7 +54,13 @@ const CardContainer = ({ urlFetch, sectionName, mediaType }) => {
                     if (i < 5) {
                         return (
                             <Link className="link" to={`/${mediaType}/${element.id}`} key={element.id}>
-                                <Card info={element} key={element.id} media={mediaType ? mediaType : element.media_type}></Card>
+                                <Card 
+                                poster={element.poster_path} 
+                                title={element.original_name} 
+                                key={element.id} 
+                                media={mediaType ? mediaType : element.media_type}>
+
+                                </Card>
                             </Link>
                         )
                     }

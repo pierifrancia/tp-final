@@ -6,6 +6,7 @@ import Movies from './components/Movies'
 import Tv from './components/Tv'
 import Details from './components/Details'
 import Trending from './components/Trending'
+import Cast from './components/Cast'
 import styled from 'styled-components';
 import './App.css';
 
@@ -31,6 +32,7 @@ const App = () => {
           <Route exact path="/:media_type/:id" component={Details}></Route>
           <Route path="/:media_type/trending/page" component={Trending}></Route>
           <Route exact path="/:media_type/:id/info" component={Details}></Route>
+          <Route exact path="/:media_type/:id/cast" component={Cast}></Route>
         </Switch>
       </Router>
     

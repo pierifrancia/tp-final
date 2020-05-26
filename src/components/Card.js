@@ -1,25 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import noDisponible from '../assets/nodisponible.png' 
 
 const CardStyle = styled.div`
+display: flex;
+flex-wrap: wrap;
 width: 264px;
 height: 396px;
 background-image: cover;
-margin: 35px 5px 15px 5px;
+margin: 50px 5px 50px 5px;
 img {
     width: auto;
     height: 100%;
 }
 `
 
-const Card = ({ info }) => {
-
+const Card = ({ poster, name, title, character, photo }) => {
     return (
-        <CardStyle>
-        <img src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} alt={`${info.poster_path}`}/>       
-        <p>{info.original_title || info.original_name}</p>
+        <CardStyle>            
+        {poster != null || photo != null ? 
+        <img src={`https://image.tmdb.org/t/p/w500${poster ? poster : photo}`} alt={`${title ? title : name}`}></img>
+        : <img src={noDisponible} alt={"Imagen no disponible"}></img>}
+        <div>       
+        <h3>{title ? title : ""}</h3>
+        <h3>{name ? name : ""}</h3>
+        <h4>{character ? character : ""}</h4>
+        </div>
         </CardStyle>
+
+
     )
 }
 
