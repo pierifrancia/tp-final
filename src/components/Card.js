@@ -6,7 +6,7 @@ const CardStyle = styled.div`
 width: 264px;
 height: 396px;
 background-image: cover;
-margin: 10px;
+margin: 35px 5px 15px 5px;
 img {
     width: auto;
     height: 100%;

@@ -30,6 +30,7 @@ const App = () => {
           <Route exact path="/tv" component={() => <Tv />}></Route>
           <Route exact path="/:media_type/:id" component={Details}></Route>
           <Route path="/:media_type/trending/page" component={Trending}></Route>
+          <Route exact path="/:media_type/:id/info" component={Details}></Route>
         </Switch>
       </Router>
     

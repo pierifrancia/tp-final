@@ -1,42 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card'
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-// const CardContainerStyle = styled.div`
-// @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap');
-// `    
+const TrendingStyle = styled.div`
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400&display=swap');
+display: flex;
+flex-wrap: wrap;
+`    
 
+const Trending = mediaType => {
 
-const Trending = (props, urlFetch) => {
-
-    console.log(urlFetch)
+    console.log(mediaType)
 
     const [contenido, setContenido] = useState([])
 
+    const params = useParams();
+
     useEffect(() => {
-        fetch(urlFetch)
-            .then(res => res.json())
-            .then(data => setContenido(data.results))
-    }, [])
+    fetch(`https://api.themoviedb.org/3/trending/${params.media_type}/week?api_key=ae73920dc1db068b1ee4b5b159748206`)
+        .then(res => res.json())
+        .then(data => setContenido(data.results))
+}, [])
 
-    console.log(props)
-    console.log(contenido)
+console.log(contenido)
 
+return (
+    <TrendingStyle>
+    {contenido.map((element) => {
+        return (
+            <Link to={`/${element.media_type}/${element.id}`} key={element.id}>
+                <Card info={element} key={element.id} media={element.media_type}></Card>
+            </Link>
 
-    return (
-        <p>{'Todavia no pasa nada en trending'}</p>
-
-        // data.map((element) => {
-
-        //     return (
-        //         <Link to={`/${element.media_type}/${element.id}`} key={element.id}>
-        //             <Card info={element} key={element.id} media={element.media_type}></Card>
-        //         </Link>
-
-        //     )
-        // })
-    )
+        )
+    })
+    }
+    </TrendingStyle>
+)
 
 }
 
