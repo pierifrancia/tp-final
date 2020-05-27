@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
+import Cast from './Cast'
 
 const NavDetailsStyle = styled.div`
 display: flex;
@@ -29,8 +30,9 @@ const NavDetails = () => {
     <Link className="link" id="episodies" to={`/${params.media_type}/${params.id }/seasons/1`}>EPISODIOS</Link> 
     : ""}
 
-    <Link className="link" id="cast" to={`/${params.media_type}/${params.id}/cast`}>REPARTO</Link>
+    {/* <Link className="link" id="cast" to={`/${params.media_type}/${params.id}/cast`}>REPARTO</Link> */}
 
+    
     {`${params.media_type}` == "movie" ? 
     <Link className="link" id="videos" to={`/${params.media_type}/${params.id}/videos`}>VIDEOS</Link> 
     : ""}

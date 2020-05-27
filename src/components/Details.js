@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
 import InfoDetails from './InfoDetails';
 import NavDetails from './NavDetails';
+import Cast from './Cast'
 
 const DetailsStyle = styled.div`
 .portada {
@@ -24,6 +25,7 @@ const Details = () => {
 
     const [contenidoDetails, setContenidoDetails] = useState([])
     const [imagen, setImagen] = useState([])
+    const [selection, setSelection] = useState("info")
     // const [page, SetPage] = useState([])
 
     const params = useParams();
@@ -41,17 +43,36 @@ const Details = () => {
     }, [])
 
 
+    const handleClick = (e) => {
+        e.preventDefault()
+        setSelection(e.target.id)
+
+    }
+
     return (
+        <>
+            <DetailsStyle>
+                <div className="portada" >
+                    <img src={`https://image.tmdb.org/t/p/original/${imagen}`} />
+                </div>
 
-        <DetailsStyle>
-            <div className="portada" >
-                <img src={`https://image.tmdb.org/t/p/original/${imagen}`} />
-            </div>
+                <div>
 
-            <NavDetails mediaType={params.media_type} id={params.id}></NavDetails>
-            <InfoDetails props={contenidoDetails}></InfoDetails>
+                    {<button id="info" onClick={handleClick}> INFO </button>}
+                    {`${params.media_type}` == "tv" ? <button id="episodies" onClick={handleClick}> EPISODIOS </button> : ""}
+                    {<button id="cast" onClick={handleClick}> REPARTO </button>}
+                    {<button id="videos" onClick={handleClick}> VIDEOS </button>}
+                    {`${params.media_type}` == "movie" ? <button id="similars" onClick={handleClick}> SIMILARES </button> : ""}
 
-        </DetailsStyle>
+                </div>
+            </DetailsStyle>
+
+            { selection == "info" ? <InfoDetails props={contenidoDetails}></InfoDetails> : "" }
+            { selection == "cast" ? <Cast /> : "" }
+            {/* { selection == "info" ? <InfoDetails props={contenidoDetails}></InfoDetails> : "" }
+            { selection == "info" ? <InfoDetails props={contenidoDetails}></InfoDetails> : "" } */}
+
+        </>
 
     )
 }
