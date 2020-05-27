@@ -56,10 +56,9 @@ const CardContainer = ({ urlFetch, sectionName, mediaType }) => {
                             <Link className="link" to={`/${mediaType}/${element.id}`} key={element.id}>
                                 <Card 
                                 poster={element.poster_path} 
-                                title={element.original_name} 
+                                title={element.original_name ? element.original_name : element.title} 
                                 key={element.id} 
                                 media={mediaType ? mediaType : element.media_type}>
-
                                 </Card>
                             </Link>
                         )

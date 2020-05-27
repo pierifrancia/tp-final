@@ -15,7 +15,7 @@ img {
 }
 `
 
-const Card = ({ poster, name, title, character, photo }) => {
+const Card = ({ poster, name, title, character, photo, site }) => {
     return (
         <CardStyle>            
         {poster != null || photo != null ? 
@@ -25,6 +25,7 @@ const Card = ({ poster, name, title, character, photo }) => {
         <h3>{title ? title : ""}</h3>
         <h3>{name ? name : ""}</h3>
         <h4>{character ? character : ""}</h4>
+        <h3>{site ? site : ""}</h3>
         </div>
         </CardStyle>
 

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
-import InfoDetails from './InfoDetails';
-import NavDetails from './NavDetails';
+import InfoDetails from './Info';
 import Cast from './Cast'
+import Videos from './Videos'
+import Similar from './Similar'
 
 const DetailsStyle = styled.div`
 .portada {
@@ -21,6 +22,18 @@ display: flex;
 flex-direction: column;
 align-items: center;
 `
+
+const NavDetailsStyle = styled.div`
+display: flex;
+flex-position: center;
+margin: 25px;
+.link {
+    text-decoration: none;
+    color: #fff;
+    margin: 15px;
+}
+`
+
 const Details = () => {
 
     const [contenidoDetails, setContenidoDetails] = useState([])
@@ -56,21 +69,21 @@ const Details = () => {
                     <img src={`https://image.tmdb.org/t/p/original/${imagen}`} />
                 </div>
 
-                <div>
+                <NavDetailsStyle>
 
                     {<button id="info" onClick={handleClick}> INFO </button>}
                     {`${params.media_type}` == "tv" ? <button id="episodies" onClick={handleClick}> EPISODIOS </button> : ""}
                     {<button id="cast" onClick={handleClick}> REPARTO </button>}
-                    {<button id="videos" onClick={handleClick}> VIDEOS </button>}
-                    {`${params.media_type}` == "movie" ? <button id="similars" onClick={handleClick}> SIMILARES </button> : ""}
+                    {`${params.media_type}` == "movie" ? <button id="videos" onClick={handleClick}> VIDEOS </button>  : ""}
+                    {<button id="similar" onClick={handleClick}> SIMILARES </button>}
 
-                </div>
+                </NavDetailsStyle>
             </DetailsStyle>
 
             { selection == "info" ? <InfoDetails props={contenidoDetails}></InfoDetails> : "" }
             { selection == "cast" ? <Cast /> : "" }
-            {/* { selection == "info" ? <InfoDetails props={contenidoDetails}></InfoDetails> : "" }
-            { selection == "info" ? <InfoDetails props={contenidoDetails}></InfoDetails> : "" } */}
+            { selection == "videos" ? <Videos /> : "" }
+            { selection == "similar" ? <Similar /> : "" }
 
         </>
 
