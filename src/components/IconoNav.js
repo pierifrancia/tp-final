@@ -27,6 +27,7 @@ const IconoNav = (props) => {
     return (
     <StyleHome>
    {icon[props.name]}
+   {props.children}
    </StyleHome>
 )   
 }

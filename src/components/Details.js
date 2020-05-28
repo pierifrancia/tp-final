@@ -28,8 +28,6 @@ display: flex;
 flex-position: center;
 margin: 25px;
 .link {
-    text-decoration: none;
-    color: #fff;
     margin: 15px;
 }
 `

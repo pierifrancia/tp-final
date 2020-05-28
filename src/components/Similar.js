@@ -29,7 +29,7 @@ const Similar = () => {
                 return (
                     <Card
                     poster={element.poster_path} 
-                    title={element.original_title} 
+                    title={element.original_title ? element.original_title : element.original_name} 
                     key={element.id}
                     > 
                     </Card>

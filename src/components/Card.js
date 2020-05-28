@@ -9,6 +9,12 @@ width: 264px;
 height: 396px;
 background-image: cover;
 margin: 50px 5px 50px 5px;
+h3 {
+    font-weight: 200;
+}
+h2 {
+    font-weight: 200;
+}
 img {
     width: auto;
     height: 100%;
