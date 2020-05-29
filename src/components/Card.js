@@ -8,7 +8,7 @@ flex-wrap: wrap;
 width: 264px;
 height: 396px;
 background-image: cover;
-margin: 50px 5px 50px 5px;
+margin: 40px 5px 60px 5px;
 h3 {
     font-weight: 200;
 }
@@ -34,7 +34,6 @@ const Card = ({ poster, name, title, character, photo, site }) => {
         <h3>{site ? site : ""}</h3>
         </div>
         </CardStyle>
-
 
     )
 }

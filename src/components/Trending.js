@@ -11,17 +11,10 @@ flex-wrap: wrap;
 
 const Trending = (mediaType) => {
 
-    //console.log(mediaType)
-
     const [contenido, setContenido] = useState([])
 
     const media_type = useParams().media_type;
     const section = useParams().section;
-    //console.log(params)
-    // buscar una manera de identificar de que parte viene, porque si no viene de home, deja de ser 
-    // trending/movie/week y pasa a ser movie/popular x ej 
-
-    console.log(section)
 
     let url = ''
     if (section === "trending") {
@@ -42,8 +35,12 @@ const Trending = (mediaType) => {
     return (
         <TrendingStyle>
             {contenido.map((element) => {
+                console.log(element.media_type, mediaType)
+                let media = mediaType.match.params.media_type != null 
+                ? mediaType.match.params.media_type 
+                : element.media_type;
                 return (
-                    <Link className="link" to={`/${element.media_type}/${element.id}`} key={element.id}>
+                    <Link className="link" to={`/${media}/${element.id}`} key={element.id}> 
                         <Card
                             poster={element.poster_path}
                             title={element.original_title}

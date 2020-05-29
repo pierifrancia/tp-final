@@ -37,7 +37,6 @@ const Details = () => {
     const [contenidoDetails, setContenidoDetails] = useState([])
     const [imagen, setImagen] = useState([])
     const [selection, setSelection] = useState("info")
-    // const [page, SetPage] = useState([])
 
     const params = useParams();
 

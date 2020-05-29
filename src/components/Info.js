@@ -6,9 +6,7 @@ import { FacebookSquare } from "@styled-icons/fa-brands/FacebookSquare";
 import { Twitter } from "@styled-icons/fa-brands/Twitter";
 import { Instagram } from "@styled-icons/fa-brands/Instagram";
 import { Link } from "@styled-icons/fa-solid/Link";
-// import { Star } from "styled-icons/material/Star";
-// import { StarHalf } from "styled-icons/material/StarHalf";
-// import { StarBorder } from "styled-icons/material/StarBorder" ;
+
 
 const ImdbIcon = styled(Imdb)`
 color: #FFF;

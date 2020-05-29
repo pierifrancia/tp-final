@@ -15,8 +15,6 @@ const AppStyle = styled.div`
 body {
   margin: 0px;
 }
-background-color: #333;
-color: #eee
 `
 
 const App = () => {

@@ -6,10 +6,10 @@ import { Tv } from "@styled-icons/feather/Tv";
 import { Search } from "@styled-icons/feather/Search" ;
 
 const baseInputStyles = css`
-color: #333;
-width: 40px;
-height: 40px;
-margin: 10px;
+color: #FFF;
+width: 30px;
+height: 30px;
+margin: 20px;
 `
 
 const StyleNav = styled.div`

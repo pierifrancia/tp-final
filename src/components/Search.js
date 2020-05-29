@@ -5,7 +5,6 @@ import style from 'styled-components';
 
 const SearchStyle = style.nav`
 display: flex;
-background-color: #eee;
 `
 
 const Search = ({data}) => {
