@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from "@styled-icons/feather/ArrowLeft";
 import { ArrowRight } from "@styled-icons/feather/ArrowRight" ;
 
 const ArrowRightIcon = styled(ArrowRight)`
@@ -30,8 +29,6 @@ const CardContainer = ({ urlFetch, sectionName, mediaType, section }) => {
             .then(res => res.json())
             .then(data => setContenido(data.results))
     }, [])
-
-    //console.log(contenido)
 
     return (
 

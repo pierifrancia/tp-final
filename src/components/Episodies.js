@@ -9,29 +9,30 @@ const ContainerStyle = styled.div`
     height: 500px;
 `
 
-const Cast = () => {
+const Episodies = () => {
 
-    const [contenidoCast, setContenidoCast] = useState([])
+    const [contenidoEpisodies, setContenidoEpisodies] = useState([])
 
     const params = useParams();
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/${params.media_type}/${params.id}/credits?api_key=ae73920dc1db068b1ee4b5b159748206`)
+        fetch(`https://api.themoviedb.org/3/${params.media_type}/${params.id}/videos?api_key=ae73920dc1db068b1ee4b5b159748206`)
             .then(res => res.json())
-            .then(data => setContenidoCast(data.cast))
+            .then(data => setContenidoEpisodies(data.results))
     }, [])
 
-    // console.log(contenidoCast)
+    console.log(contenidoEpisodies)
 
     return (
         <ContainerStyle>
-            {contenidoCast.map(element => {
+            {contenidoEpisodies.map(element => {
                 return (
                     <Card
+                        id={element.id}
                         name={element.name}
-                        character={element.character}
-                        photo={element.profile_path}>
-                    </Card>)
+                        site={element.site}>
+                    </Card>
+                    )
             })
             }
         </ContainerStyle>
@@ -39,4 +40,4 @@ const Cast = () => {
 }
 
 
-export default Cast;
+export default Episodies;

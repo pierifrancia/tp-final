@@ -5,6 +5,7 @@ import Info from './Info';
 import Cast from './Cast'
 import Videos from './Videos'
 import Similar from './Similar'
+import Episodies from './Episodies'
 
 const DetailsStyle = styled.div`
 .portada {
@@ -29,6 +30,14 @@ flex-position: center;
 margin: 25px;
 .link {
     margin: 15px;
+    text-decoration: none;
+}
+button {
+    border: none;
+    margin: 15px;
+    background-color: rgb(54, 57, 63);
+    color: #FFF;
+    font-size: 15px;
 }
 `
 

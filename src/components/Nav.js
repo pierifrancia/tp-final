@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import IconoNav from './IconoNav';
 import Search from './Search';
+import Home from './Home';
 import style from 'styled-components';
 
 
@@ -34,10 +35,8 @@ const Nav = () => {
         setBusqueda(e.target.value)
     }
 
-    console.log(busqueda)
-
     useEffect(() => {
-        if (busqueda.length > 2) {
+        if (busqueda.length != 0) {
             fetch(`https://api.themoviedb.org/3/search/multi?api_key=ae73920dc1db068b1ee4b5b159748206&query=${busqueda}`)
                 .then(res => res.json())
                 .then(data => setData(data.results))
@@ -67,8 +66,8 @@ const Nav = () => {
             </div>
             </NavStyle>
 
-            {data.length != 0
-                ? <Search data={data}></Search>
+            {data.length > 0
+                ? <Search data={data} query={busqueda}></Search>
                 : null
             }
             </>
