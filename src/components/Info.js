@@ -80,7 +80,7 @@ const Info = ({props}) => {
             .then(data => SetExternal(data))
     }, [])
 
-    console.log(props.genres)
+    console.log(external)
     
     let production = props.production_companies
     
@@ -98,7 +98,7 @@ const Info = ({props}) => {
                 <p>{props.overview}</p>
                 <p>{`Duración: ${props.runtime} min`}</p>
 
-                <p>Géneros: {props.genres != undefined ? props.genres.map(genre => {return (<span>{genre.name}</span>)}) : ""}</p>  
+                <p>Géneros: {props.genres != undefined ? props.genres.map(genre => {return (<span>{genre.name} </span>)}) : ""}</p>  
 
                 <p>{`Recaudación: $${ (new Intl.NumberFormat().format(props.revenue))}`}</p>
                 
@@ -106,11 +106,26 @@ const Info = ({props}) => {
                 {/* {production.map(element => {return (element.name)})} */}
             
                 <div className="external">
-                 <a href={`https://www.imdb.com/title/${external.imdb_id}`}> <ImdbIcon /></a>
-                <a href={`https://twitter.com/${external.twitter_id}`}>< TwitterIcon /></a>
-                <a href={`https://www.facebook.com/${external.facebook_id}`}> <FacebookIcon /></a>
-                <a href={`https://www.instagram.com/badboys/${external.instagram_id}`}> <InstagramIcon /></a>
-                <a href={`${props.homepage}`}> <LinkIcon /> </a>
+                {external.imdb_id != null 
+                ? <a href={`https://www.imdb.com/title/${external.imdb_id}`}> <ImdbIcon /></a>
+                : ''}
+
+                {external.twitter_id != null 
+                ? <a href={`https://twitter.com/${external.twitter_id}`}>< TwitterIcon /></a>
+                : ''}
+
+                {external.facebook_id != null 
+                ? <a href={`https://www.facebook.com/${external.facebook_id}`}> <FacebookIcon /></a>
+                : ''}
+
+                {external.instagram_id != null 
+                ? <a href={`https://www.instagram.com/${external.instagram_id}`}> <InstagramIcon /></a>
+                : ''}
+                
+                {`${props.homepage}`
+                ? <a href={`${props.homepage}`}> <LinkIcon /></a>
+                : ''}
+                
                 </div>
             </div>
             
