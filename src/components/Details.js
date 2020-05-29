@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link, useParams } from 'react-router-dom';
-import InfoDetails from './Info';
+import Info from './Info';
 import Cast from './Cast'
 import Videos from './Videos'
 import Similar from './Similar'
@@ -78,7 +78,7 @@ const Details = () => {
                 </NavDetailsStyle>
             </DetailsStyle>
 
-            { selection == "info" ? <InfoDetails props={contenidoDetails}></InfoDetails> : "" }
+            { selection == "info" ? <Info props={contenidoDetails} /> : "" }
             { selection == "cast" ? <Cast /> : "" }
             { selection == "videos" ? <Videos /> : "" }
             { selection == "similar" ? <Similar /> : "" }

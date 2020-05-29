@@ -6,14 +6,15 @@ import { Tv } from "@styled-icons/feather/Tv";
 import { Search } from "@styled-icons/feather/Search" ;
 
 const baseInputStyles = css`
-color: darkgray;
+color: #333;
 width: 40px;
-height: 40px;
+height: 80%;
 margin: 10px;
 `
 
-const StyleHome = styled.div`
+const StyleNav = styled.div`
 ${baseInputStyles}
+height: 45px;
 `
 
 const icon = {
@@ -25,10 +26,10 @@ const icon = {
 
 const IconoNav = (props) => {
     return (
-    <StyleHome>
+    <StyleNav>
    {icon[props.name]}
    {props.children}
-   </StyleHome>
+   </StyleNav>
 )   
 }
     

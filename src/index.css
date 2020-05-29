@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   color: #fff;
-  background-color: #333;
+  background-color: rgb(54, 57, 63);
 }
 
 .link {
@@ -13,9 +13,27 @@ body {
 
 h2 {
   font-family: 'Roboto', sans-serif;
-  font-size: 25px;
+  color: rgb(220, 221, 222);
+  font-size: 32px;
   font-weight: 300;
   margin: 0px;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  color: rgb(220, 221, 222);
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  color: rgb(220, 221, 222);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 20px;
 }
 
 

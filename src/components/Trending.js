@@ -43,7 +43,7 @@ const Trending = (mediaType) => {
         <TrendingStyle>
             {contenido.map((element) => {
                 return (
-                    <Link to={`/${element.media_type}/${element.id}`} key={element.id}>
+                    <Link className="link" to={`/${element.media_type}/${element.id}`} key={element.id}>
                         <Card
                             poster={element.poster_path}
                             title={element.original_title}

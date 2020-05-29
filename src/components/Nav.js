@@ -8,6 +8,18 @@ import style from 'styled-components';
 const NavStyle = style.nav`
 display: flex;
 background-color: #eee;
+
+.buscador {
+    display: flex;
+    div {
+        height: 45px;
+    }
+}
+
+input {
+    width: 100px;
+    height: 25px;
+}
 `
 
 const Nav = () => {
@@ -29,7 +41,6 @@ const Nav = () => {
         }
     }, [busqueda])
 
-    console.log(data)
 
 
     return (
@@ -45,10 +56,11 @@ const Nav = () => {
                 <Link className="icon" to="/tv">
                     <IconoNav name="tv" />
                 </Link>
-                <IconoNav name="search">
-                    <input onChange={handleChange} type="text" placeholder={"Búsqueda..."}></input>
-                </IconoNav>
-
+                <div classname="buscador">
+                <IconoNav   name="search">
+                    <input onChange={handleChange} type="text" placeholder={"Búsqueda..."}></input> 
+                </IconoNav>  
+                </div>         
             </NavStyle>
 
 

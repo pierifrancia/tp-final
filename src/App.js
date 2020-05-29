@@ -19,7 +19,6 @@ background-color: #333;
 color: #eee
 `
 
-
 const App = () => {
 
   return (
