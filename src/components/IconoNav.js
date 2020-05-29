@@ -8,13 +8,12 @@ import { Search } from "@styled-icons/feather/Search" ;
 const baseInputStyles = css`
 color: #333;
 width: 40px;
-height: 80%;
+height: 40px;
 margin: 10px;
 `
 
 const StyleNav = styled.div`
 ${baseInputStyles}
-height: 45px;
 `
 
 const icon = {

@@ -43,9 +43,7 @@ margin: 3px;
 `
 
 const CardStyle = styled.div`
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
-
 section {
     display: flex;
 .poster {
@@ -72,7 +70,7 @@ section {
 }
 `
 const Info = ({props}) => {
-
+  
     const params = useParams();
     const [external, SetExternal] = useState([])
 
@@ -82,41 +80,44 @@ const Info = ({props}) => {
             .then(data => SetExternal(data))
     }, [])
 
-console.log(props)
-
-let production = props.production_companies
-
+    console.log(props.genres)
+    
+    let production = props.production_companies
+    
     return (
 
         <CardStyle>
-            <section>
+        <section>
             <div className="poster">
-                <img src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`} 
-                alt={`${props.poster_path}`} />
+                    <img src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`} 
+                    alt={`${props.poster_path}`} />
             </div>
             <div className="textDetails">
-            <h2>{props.original_title}</h2>
-            <p>{props.vote_average}</p>
-            <p>{props.overview}</p>
-            <p>{`Duración: ${props.runtime} min`}</p>
-    <p>{`Géneros`}</p>
-    <p>{`Recaudación: $${ (new Intl.NumberFormat().format(props.revenue))}`}</p>
-    <p>{`Producción:`}</p>
-    {/* {production.map(element => {return (element.name)})} */}
+                <h2>{props.original_title}</h2>
+                <p>{props.vote_average}</p>
+                <p>{props.overview}</p>
+                <p>{`Duración: ${props.runtime} min`}</p>
 
-    <div className="external">
-    <a href={`https://www.imdb.com/title/${external.imdb_id}`}> <ImdbIcon /></a>
-    <a href={`https://twitter.com/${external.twitter_id}`}>< TwitterIcon /></a>
-    <a href={`https://www.facebook.com/${external.facebook_id}`}> <FacebookIcon /></a>
-    <a href={`https://www.instagram.com/badboys/${external.instagram_id}`}> <InstagramIcon /></a>
-    <a href={`${props.homepage}`}> <LinkIcon /> </a>
-            </div>
-            </div>
-           
-            </section>
+                <p>Géneros: {props.genres != undefined ? props.genres.map(genre => {return (<span>{genre.name}</span>)}) : ""}</p>  
 
+                <p>{`Recaudación: $${ (new Intl.NumberFormat().format(props.revenue))}`}</p>
+                
+                {/* <p>{`Producción:`}</p> */}
+                {/* {production.map(element => {return (element.name)})} */}
+            
+                <div className="external">
+                 <a href={`https://www.imdb.com/title/${external.imdb_id}`}> <ImdbIcon /></a>
+                <a href={`https://twitter.com/${external.twitter_id}`}>< TwitterIcon /></a>
+                <a href={`https://www.facebook.com/${external.facebook_id}`}> <FacebookIcon /></a>
+                <a href={`https://www.instagram.com/badboys/${external.instagram_id}`}> <InstagramIcon /></a>
+                <a href={`${props.homepage}`}> <LinkIcon /> </a>
+                </div>
+            </div>
+            
+        </section>
+  
         </CardStyle>
-
+  
     )
 }
 

@@ -11,9 +11,6 @@ background-color: #eee;
 
 .buscador {
     display: flex;
-    div {
-        height: 45px;
-    }
 }
 
 input {
