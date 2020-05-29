@@ -78,13 +78,12 @@ const Info = ({props}) => {
             .then(data => SetExternal(data))
     }, [])
 
-    console.log(external)
-    
-    let production = props.production_companies
+    console.log(props)
     
     return (
 
         <CardStyle>
+        
         <section>
             <div className="poster">
                     <img src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`} 
@@ -99,9 +98,10 @@ const Info = ({props}) => {
                 <p>Géneros: {props.genres != undefined ? props.genres.map(genre => {return (<span>{genre.name} </span>)}) : ""}</p>  
 
                 <p>{`Recaudación: $${ (new Intl.NumberFormat().format(props.revenue))}`}</p>
-                
-                {/* <p>{`Producción:`}</p> */}
-                {/* {production.map(element => {return (element.name)})} */}
+
+                <p>Producción: {props.production_companies != undefined 
+                ? props.production_companies.map(company => {return (<span>{company.name}, </span>)}) 
+                : ""}</p>
             
                 <div className="external">
                 {external.imdb_id != null 

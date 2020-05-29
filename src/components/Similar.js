@@ -21,19 +21,22 @@ const Similar = () => {
             .then(data => setContenidoSimilar(data.results))
     }, [])
 
+
     console.log(contenidoSimilar)
 
     return (
         <ContainerStyle>
             {contenidoSimilar.map(element => {
+               
                 return (
+                    <Link className="link" to={`/${params.media_type}/${element.id}`} key={element.id}>
                     <Card
                     poster={element.poster_path} 
                     title={element.original_title ? element.original_title : element.original_name} 
                     key={element.id}
-                    > 
-                    </Card>
-                    )
+                    />
+                    </Link>
+                )
             })
             }
         </ContainerStyle>
