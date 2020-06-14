@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// recorda siempre poner ; despues de cada import (y de cada sentencia en js)
 import Nav from './components/Nav'
 import Home from './components/Home'
 import Movies from './components/Movies'
@@ -9,6 +10,7 @@ import Trending from './components/Trending'
 import Cast from './components/Cast'
 import Search from './components/Search'
 import styled from 'styled-components';
+// esto no se usa, asi que seria mejor borrarlo
 import './App.css';
 
 const AppStyle = styled.div`
@@ -24,6 +26,7 @@ const App = () => {
       <Router>
         <Nav />
         <Switch>
+        {/* Preferible aqui escribir el componente directamente, no retornarlo con una funcion  */}
           <Route exact path="/" component={() => <Home />}></Route>
           <Route path="/movies" component={() => <Movies />}></Route>
           <Route exact path="/tv" component={() => <Tv />}></Route>

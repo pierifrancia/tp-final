@@ -16,6 +16,9 @@ h2 {
 }
 `
 
+// Revisa bien el tabulado en este componente
+// Ante la duda, clic derecho + format document antes de cada commit 
+
 const Search = ({ data, query }) => {
 
 

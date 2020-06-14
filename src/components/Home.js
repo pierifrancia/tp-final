@@ -1,5 +1,6 @@
 import React from 'react';
 import CardContainer from './CardContainer';
+// No se usa styled, asi que habria que sacar el import. 
 import styled from 'styled-components';
 
 

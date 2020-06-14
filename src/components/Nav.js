@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import IconoNav from './IconoNav';
 import Search from './Search';
+// aca home no se usa 
 import Home from './Home';
 import style from 'styled-components';
 
@@ -36,6 +37,7 @@ const Nav = () => {
     }
 
     useEffect(() => {
+        // privilegia escribir if (!busqueda.length)
         if (busqueda.length != 0) {
             fetch(`https://api.themoviedb.org/3/search/multi?api_key=ae73920dc1db068b1ee4b5b159748206&query=${busqueda}`)
                 .then(res => res.json())
@@ -62,9 +64,14 @@ const Nav = () => {
             </div>
             <div className="buscador">
                 <IconoNav name="search" />
+        {/* Yo se que es muchisimo pedir, con lo bien que esta tu trabajo, 
+        pero le faltó algo de amor a este input
+        (con amor me refiero a css) */}
                 <input onChange={handleChange} type="text" placeholder={"Búsqueda..."}></input>
             </div>
             </NavStyle>
+
+            {/* Aca no se hace nada si data.length no es mayor a cero, asi que seria mejor el operador && antes que el ternario */}
 
             {data.length > 0
                 ? <Search data={data} query={busqueda}></Search>

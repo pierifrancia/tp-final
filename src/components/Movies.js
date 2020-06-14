@@ -3,6 +3,15 @@ import CardContainer from './CardContainer'
 
 const Movies = () => {
 
+  // No es buena practica forzar a que el lector de tu codigo haga un scroll horizontal para poder leer. 
+  // Cuando tenemos demasiado codigo en una sola linea, es mejor cortarlo en varias. 
+  // La convencion en React es esta: 
+  // <CardContainer
+  //     section={'popular'}
+  //     mediaType={'movie'}
+  //     urlFetch={'https://api.themoviedb.org/3/movie/popular?api_key=ae73920dc1db068b1ee4b5b159748206'}
+  //     sectionName={'Películas populares'}
+  //   />
   return (
     <>
       <CardContainer section={'popular'} mediaType={'movie'} urlFetch={'https://api.themoviedb.org/3/movie/popular?api_key=ae73920dc1db068b1ee4b5b159748206'} sectionName={'Películas populares'}></CardContainer>

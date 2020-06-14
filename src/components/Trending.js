@@ -10,6 +10,7 @@ flex-wrap: wrap;
 `
 
 const Trending = (mediaType) => {
+    // Excelente como resolviste la logica en este componente
 
     const [contenido, setContenido] = useState([])
 

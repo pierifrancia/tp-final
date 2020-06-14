@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// ojo, no estas usando Link asi que mejor no importarlo
 import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import Card from './Card'
@@ -21,6 +22,7 @@ const Episodies = () => {
             .then(data => setContenidoEpisodies(data.results))
     }, [])
 
+    // ojo!
     console.log(contenidoEpisodies)
 
     return (

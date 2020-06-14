@@ -8,6 +8,8 @@ import { Instagram } from "@styled-icons/fa-brands/Instagram";
 import { Link } from "@styled-icons/fa-solid/Link";
 
 
+// Pensa como podes reutilizar este codigo en lugar de repetirlo tantas veces. 
+// Hay algo asi como mixins en styled-components: te lo menciono para que lo chusmees. 
 const ImdbIcon = styled(Imdb)`
 color: #FFF;
 width: 30px;
@@ -67,6 +69,8 @@ section {
 }
 }
 `
+// ese tabulado de arriba me hizo llorar un poco, debo confesarlo
+
 const Info = ({props}) => {
   
     const params = useParams();
@@ -78,8 +82,17 @@ const Info = ({props}) => {
             .then(data => SetExternal(data))
     }, [])
 
+    // recorda siempre borrar los console log antes de entregar un trabajo 
     console.log(props)
     
+
+    // Este componente esta muy bien para ser tan complejo, pero tener tanta logica en el JSX dificulta su lectura
+    // Privilegia tener la logica separada y que el JSX sea lo mas sencillo posibles. 
+    // Por ejemplo, aqui yo pondria la logica antes del return:
+    // const generos = props.genres ? props.genres.map(genre => {return (<span>{genre.name} </span>)}) : ""
+    // Y en el JSX escribimos asi:
+    // <p>Géneros: {generos}</p>  
+
     return (
 
         <CardStyle>
@@ -104,10 +117,15 @@ const Info = ({props}) => {
                 : ""}</p>
             
                 <div className="external">
+                {/* En lugar de "es distinto a null" es preferible escribir directamente external.imdb_id 
+                Como no estamos haciendo nada si la condicion no se cumple, yo preferiria usar && antes que ternario
+                */}
+
                 {external.imdb_id != null 
                 ? <a href={`https://www.imdb.com/title/${external.imdb_id}`}> <ImdbIcon /></a>
                 : ''}
 
+{/* Fijate que aca por un espacio antes de TwitterIcon, ese icono no se muestra  */}
                 {external.twitter_id != null 
                 ? <a href={`https://twitter.com/${external.twitter_id}`}>< TwitterIcon /></a>
                 : ''}

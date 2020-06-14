@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+// no se usa ni Link ni Eposodies, asi que habria que sacar estos import. 
+//  recorda poner ; al final 
 import { Link, useParams } from 'react-router-dom';
 import Info from './Info';
 import Cast from './Cast'
@@ -43,6 +45,8 @@ button {
 
 const Details = () => {
 
+    // Excelente como resolviste la logica en este componente. 
+
     const [contenidoDetails, setContenidoDetails] = useState([])
     const [imagen, setImagen] = useState([])
     const [selection, setSelection] = useState("info")
@@ -63,6 +67,7 @@ const Details = () => {
 
 
     const handleClick = (e) => {
+        // No es necesario prevenir el default aqui (si fuera un form, si)
         e.preventDefault()
         setSelection(e.target.id)
 
@@ -76,7 +81,7 @@ const Details = () => {
                 </div>
 
                 <NavDetailsStyle>
-
+{/* No son necesarias las llaves en los <button> */}
                     {<button id="info" onClick={handleClick}> INFO </button>}
                     {`${params.media_type}` == "tv" ? <button id="episodies" onClick={handleClick}> EPISODIOS </button> : ""}
                     {<button id="cast" onClick={handleClick}> REPARTO </button>}
@@ -86,6 +91,7 @@ const Details = () => {
                 </NavDetailsStyle>
             </DetailsStyle>
 
+{/* Preferi usar nombres mas descriptivos que "props".  */}
             { selection == "info" ? <Info props={contenidoDetails} /> : "" }
             { selection == "cast" ? <Cast /> : "" }
             { selection == "videos" ? <Videos /> : "" }

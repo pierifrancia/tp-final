@@ -24,6 +24,10 @@ const icon = {
 }
 
 const IconoNav = (props) => {
+
+    // este componente es hermoso y muy bien hecho !!!
+
+
     return (
     <StyleNav>
    {icon[props.name]}

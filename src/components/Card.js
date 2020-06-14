@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import noDisponible from '../assets/nodisponible.png' 
 
+// atencion al tabulado desprolijo
 const CardStyle = styled.div`
 display: flex;
 flex-wrap: wrap;
@@ -23,11 +24,14 @@ img {
 
 const Card = ({ poster, name, title, character, photo, site }) => {
     return (
-        <CardStyle>            
+        <CardStyle>   
+        {/* seria preferible escribir esta logica asi:
+        poster || photo ?           */}
         {poster != null || photo != null ? 
         <img src={`https://image.tmdb.org/t/p/w500${poster ? poster : photo}`} alt={`${title ? title : name}`}></img>
         : <img src={noDisponible} alt={"Imagen no disponible"}></img>}
-        <div>       
+        <div>    
+        {/* No es necesaria aqui esta validacion: si "title" es undefined React no escribe undefined, sino que lo deja vacio.    */}
         <h3>{title ? title : ""}</h3>
         <h3>{name ? name : ""}</h3>
         <h4>{character ? character : ""}</h4>

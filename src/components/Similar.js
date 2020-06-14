@@ -9,6 +9,7 @@ const ContainerStyle = styled.div`
     height: 500px;
 `
 
+// Notaste las similitudes entre este componente y Cast? Quiza pueda reutilizarse en lugar de tener dos componentes separados
 const Similar = () => {
 
     const [contenidoSimilar, setContenidoSimilar] = useState([])
